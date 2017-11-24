@@ -222,38 +222,5 @@ test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
 
 
 
----
-## Pure
-
-```yaml
-type: PureMultipleChoiceExercise
-key: 94a9fb57e7
-lang: r
-xp: 50
-skills: 1
-```
-
-
-`@possible_answers`
-- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni.
-- Tulemuseks oleval joonisel on histogrammi tulbad ikka hallid, kuid tulbad on raamistatud rohelisega.
-- Tulemuseks oleval joonisel on histogrammi tulbad punast tooni.
-- Tulemuseks oleval joonisel on histogrammi tulbad halli tooni, kuid tulbad on raamistatud punasega.
-- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni ja tulbad on raamistatud punasega.
-- Tulpade täitevärvi määramiseks tuleks `fill` asemel kasutada argumenti `color`.
-
-`@hint`
-- Mõtle kas andmestikus on tunnus, mille nimi on *chartreuse*?
-
-
-`@feedbacks`
-- esimene
-- teine
-- kolmas
-- neljas
-- viies
--kuues
-
-
 
 
