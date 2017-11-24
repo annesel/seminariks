@@ -227,7 +227,11 @@ skills: 1
 
 `@feedbacks`
 - kaja 1
--kaja2
+- kaja 2
+
+
+
+ 
 
 ---
 ## Funktsiooni kasutamise kontroll
@@ -239,28 +243,58 @@ lang: r
 xp: 100
 skills: 1
 ```
+Töölaual  on olemas vektor `x`.
 
 
 `@instructions`
-
+- **Ülesanne 1** Leia vektori  `x` keskväärtus kasutades funktsiooni `mean`, omista tulemus muutujale `m`.
+- **Ülesanne 2** Ümarda saadud keskväärtus täpsuseni kaks kohat pärast koma kasutades funktsiooni `round`.
+ 
 `@hint`
+- Vaata käsu `round` abifaili
 
 `@pre_exercise_code`
 ```{r}
+x <- rnorm(100, m = 1000, s = 50)
 
 ```
 
 `@sample_code`
 ```{r}
+# Ülesanne 1: leia keskväärtus, omista see muutujale m
+m <- --------------
+
+# Ülesanne 2: ümarda tulemus
+
+
 
 ```
 
 `@solution`
 ```{r}
+# Ülesanne 1: leia keskväärtus, omista see muutujale m
+m <- mean(x)
+
+# Ülesanne 2: ümarda tulemus
+round(m, digits = 2)
 
 ```
 
 `@sct`
 ```{r}
+
+test_function("round", args = c("x", "digits"),
+              not_called_msg = "Teises ülesadnes pead kasutama funktsiooni `round()`?",
+              args_not_specified = paste("Funktsioonile `round` c(),
+              incorrect_msg = c("Have you correctly specified that `round()` should round `pi`?",
+                                "Have you correctly set the `digits` argument to 3?"))
+success("Nice job!")
+
+# If eval = NA, the arguments are not checked; it's only checked whether the argument was specified.
+# If eval = FALSE, the expressions of the parameters are compared as strings, not the value that results from evaluating the expression.
+# If eval = TRUE, which is the default, the expressions that are used to set the arguments are evaluated and their results compared.
+
+
+
 
 ```
