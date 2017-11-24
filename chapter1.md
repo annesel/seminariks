@@ -14,16 +14,12 @@ xp: 100
 skills: 1
 ```
 
-
-
 - Üksikuid arve või tekstiväärtusi saab kokku panna vektoriks funktsiooni `c()` (*combine*) abil. 
 - Veel võimalusi vektorite moodustamiseks:
     * `1:5                 # arvujada 1, 2, 3, 4, 5`
     * `rep(1:3, times = 2) # vektorit elementidega 1, 2, 3 korrata 2 korda`
     * `seq(3, 9, by = 2)   # arvujada sammuga 2: 3, 5, 7, 9`
 - Kui teha vektorobjektidega arvtusi, siis tehted tehakse läbi iga vektori elemendiga.
-
-
 
 
 
@@ -99,6 +95,23 @@ temp2
 `@sct`
 ```{r}
 
+# ega etteantud vektorei pole muudetud
+test_predefined_objects("temp",
+    undefined_msg = "Oled vektori `temp` kustutanud! Alusta uuesti.", 
+    incorrect_msg = "Muutuja `temp` väärtused on muudetud! Alusta uuesti.")
+    
+    
+test_predefined_objects("jaam",
+    undefined_msg = "Oled vektori `jaam` kustutanud! Alusta uuesti.", 
+    incorrect_msg = "Muutuja `jaam` väärtused on muudetud! Alusta uuesti.")
+    
+test_predefined_objects("lisa",
+    undefined_msg = "Oled vektori `lisa` kustutanud! Alusta uuesti.", 
+    incorrect_msg = "Muutuja `lisa` väärtused on muudetud! Alusta uuesti.")
+        
+        
+
+
 # 1
 test_object("Fahrenheit", 
     undefined_msg = "Muutujat `Fahrenheit` pole defineeritud!", 
@@ -108,10 +121,6 @@ test_output_contains("Fahrenheit",
     incorrect_msg = "Prindi vektor `Fahrenheit` ekraanile!")
 
 # 2
-test_predefined_objects("lisa",
-    undefined_msg = "Oled vektori `lisa` kustutanud! Alusta uuesti.", 
-    incorrect_msg = "Muutuja `lisa` väärtused on muudetud! Alusta uuesti.")
-    
 test_output_contains("lisa", 
     incorrect_msg = "Vektor `lisa` pole välja prinditud!")
 
