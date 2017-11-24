@@ -195,6 +195,7 @@ msg2 = "Õige! Kuna täitevärvi määramine on `aes()` funktsiooni argumendiks 
 msg3 = "Vale vastus! `color` määrab raami värvi, mitte täite."
 
 test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
+```
 
 
 
@@ -205,3 +206,61 @@ test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
 
 
 
+
+---
+## pure
+
+```yaml
+type: PureMultipleChoiceExercise
+key: fc725d0bf8
+lang: r
+xp: 50
+skills: 1
+```
+
+
+`@possible_answers`
+- esimene
+- teien
+
+`@hint`
+
+`@feedbacks`
+- kaja 1
+-kaja2
+
+---
+## Funktsiooni kasutamise kontroll
+
+```yaml
+type: NormalExercise
+key: fec5a0a61d
+lang: r
+xp: 100
+skills: 1
+```
+
+
+`@instructions`
+
+`@hint`
+
+`@pre_exercise_code`
+```{r}
+
+```
+
+`@sample_code`
+```{r}
+
+```
+
+`@solution`
+```{r}
+
+```
+
+`@sct`
+```{r}
+
+```
