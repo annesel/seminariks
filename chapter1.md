@@ -200,39 +200,6 @@ test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
 
 
 
-
-
-
-
-
-
-
----
-## pure
-
-```yaml
-type: PureMultipleChoiceExercise
-key: fc725d0bf8
-lang: r
-xp: 50
-skills: 1
-```
-
-
-`@possible_answers`
-- esimene
-- teien
-
-`@hint`
-
-`@feedbacks`
-- kaja 1
-- kaja 2
-
-
-
- 
-
 ---
 ## Funktsiooni kasutamise kontroll
 
@@ -285,10 +252,9 @@ round(m, digits = 2)
 
 test_function("round", args = c("x", "digits"),
               not_called_msg = "Teises ülesadnes pead kasutama funktsiooni `round()`?",
-              args_not_specified = paste("Funktsioonile `round` c(),
-              incorrect_msg = c("Have you correctly specified that `round()` should round `pi`?",
-                                "Have you correctly set the `digits` argument to 3?"))
-success("Nice job!")
+              args_not_specified = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna ümardatav arv", "teiseks argumendiks komakohtade arv")),
+              incorrect_msg = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna keskväärtus `m`.", "teiseks argumendiks komakohtade arv, praegu on see 2.")))
+success("Hea töö!")
 
 # If eval = NA, the arguments are not checked; it's only checked whether the argument was specified.
 # If eval = FALSE, the expressions of the parameters are compared as strings, not the value that results from evaluating the expression.
