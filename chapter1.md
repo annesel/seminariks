@@ -233,8 +233,6 @@ m <- --------------
 
 # Ülesanne 2: ümarda tulemus
 
-
-
 ```
 
 `@solution`
@@ -254,7 +252,8 @@ test_function("round", args = c("x", "digits"),
               not_called_msg = "Teises ülesadnes pead kasutama funktsiooni `round()`?",
               args_not_specified = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna ümardatav arv", "teiseks argumendiks komakohtade arv")),
               incorrect_msg = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna keskväärtus `m`.", "teiseks argumendiks komakohtade arv, praegu on see 2.")))
-success("Hea töö!")
+              
+success("Tubli!")
 
 # If eval = NA, the arguments are not checked; it's only checked whether the argument was specified.
 # If eval = FALSE, the expressions of the parameters are compared as strings, not the value that results from evaluating the expression.
