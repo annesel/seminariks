@@ -205,30 +205,3 @@ test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
 
 
 
-
-
-
-
-
-
----
-## <<<New Exercise>>>
-
-```yaml
-type: PureMultipleChoiceExercise
-key: ff79a25fef
-lang: r
-xp: 50
-skills: 1
-```
-
-
-`@possible_answers`
-- esimene
-- teine
-
-`@hint`
-
-`@feedbacks`
-- vastukaja 1
--vastukaja 2
