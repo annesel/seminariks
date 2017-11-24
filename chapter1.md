@@ -1,130 +1,146 @@
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
+title       : Mõni näide
+description : Teeme läbi mõne näiteülesande
+
+
 
 ---
-## A really bad movie
-
-```yaml
-type: MultipleChoiceExercise
-lang: r
-xp: 50
-skills: 1
-key: 7a2f978e28
-```
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
-
-`@instructions`
-- Adventure
-- Action
-- Animation
-- Comedy
-
-`@hint`
-Have a look at the plot. Which color does the point with the lowest rating have?
-
-`@pre_exercise_code`
-```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
-```
-
-`@sct`
-```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
-```
-
----
-## More movies
-
+## Vektori moodustamine, tehted vektoriga
 ```yaml
 type: NormalExercise
+key: a92cacc5b0
 lang: r
 xp: 100
 skills: 1
-key: 3f23c508b5
 ```
 
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
 
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+
+- Üksikuid arve või tekstiväärtusi saab kokku panna vektoriks funktsiooni `c()` (*combine*) abil. 
+- Veel võimalusi vektorite moodustamiseks:
+    * `1:5                 # arvujada 1, 2, 3, 4, 5`
+    * `rep(1:3, times = 2) # vektorit elementidega 1, 2, 3 korrata 2 korda`
+    * `seq(3, 9, by = 2)   # arvujada sammuga 2: 3, 5, 7, 9`
+- Kui teha vektorobjektidega arvtusi, siis tehted tehakse läbi iga vektori elemendiga.
+
+
+
+
 
 `@instructions`
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- Tee läbi näited 1 kuni 3.
+- **Ülesanne 1.** Teisenda temperatuurid celsiuse skaalalt fahrenheiti skaalale ($^\circ\hspace{-0.1em} F = ^\circ\hspace{-0.1em} C \times \frac{9}{5} + 32$). Omista tulemus muutujale `Fahrenheit` ja prindi see ekraanile.
+- **Ülesanne 2.** Vektoris `lisa` on veel kaks õhutemperatuuri($^\circ\hspace{-0.1em} C$). Prindi see vektor ekraanile.
+- **Ülesanne 3.** Kasutades funkstiooni `c()` moodusta vektor nimega `temp2`, mille esimesed 9 elementi  on temperatuurid vektorist `temp` ja järgmised 2 temperatuurid vektorist `lisa`. Väljasta tulemus ekraanile.
+
+
 
 `@hint`
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
+- Funktsiooni `c()` saab lisaks üksikutest väärtustest vektori tegemisele kasutada ka olemasolevate vektorite kombineerimiseks: `c(vektor1, vektor2)`.
+
+
 
 `@pre_exercise_code`
 ```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/movies.RData"))
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"), c("Genre", "Rating", "Run")]
-
-# Clean up the environment
-rm(Movies)
+lisa <- c(-24.9, -16.1)
+names(lisa) <- c("Mustvee", "Keila")
 ```
 
 `@sample_code`
 ```{r}
-# movie_selection is available in your workspace
+# Näide 1: Moodustame 2 vektorit, millest ühes on kirjas temperatuurid (20.01.2010 kell 10), teises ilmajaamad, kus need on mõõdetud :
+temp <- c(-6.2, -12.9, -13.0, -15.4, -16.1, -16.9, -17.0, -19.6, -19.9)
+jaam <- c("Ruhnu", "Kihnu", "Pakri", "Tallinn", "Pärnu", "Kunda", "Kuusiku", "Võru", "Jõgeva")            
 
-# Check out the structure of movie_selection
+# Näide 2: Väljastame tulemused ekraanile
+temp; jaam
+
+# Näide 3: Paneme temperatuuridele jaamanimed juurde ja vaatame tulemust
+names(temp) <- jaam
+temp
+
+# Ülesanne 1: Teisenda temperatuurid celsiuse skaalalt fahrenheiti skaalale (asenda alakriips vajaliku tehtega) ja prindi tulemus ekraanile
+Fahrenheit <- ___________________ 
+Fahrenheit 
+
+# Ülesanne 2. Prindi ekraanile vektor nimega 'lisa'
 
 
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-
+# Ülesanne 3. Moodusta nõutud kujul uus vektor, selleks asenda alakriipsud vajalike objektidega. Prindi tulemus ekraanile.
+temp2 <- c(_____, _____) 
+temp2
 ```
 
 `@solution`
 ```{r}
-# movie_selection is available in your workspace
+# Näide 1: Moodustame 2 vektorit, millest ühes on kirjas temperatuurid (20.01.2010 kell 10), teises jaamad, kus need on mõõdetud :
+temp <- c(-6.2, -12.9, -13.0, -15.4, -16.1, -16.9, -17.0, -19.6, -19.9)
+jaam <- c("Ruhnu", "Kihnu", "Pakri", "Tallinn", "Pärnu", "Kunda", "Kuusiku", "Võru", "Jõgeva")            # NB! Kui jutumärgid unustada, otsib R vastava nimega objekte!
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Näide 2: Väljastame tulemused ekraanile
+temp; jaam
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# Näide 3: Paneme temperatuuridele jaamanimed juurde ja vaatame tulemust
+names(temp) <- jaam
+temp
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Ülesanne 1: Teisenda temperatuurid celsiuse skaalalt fahrenheiti skaalale (asenda alakriipsud vajaliku tehteda) ja prindi tulemus ekraanile
+Fahrenheit <- temp * 9/5 + 32
+Fahrenheit 
+
+# Ülesanne 2: Prindi ekraanile vektor nimega 'lisa'
+lisa
+
+# Ülesanne 3: Moodusta nõutud kujul uus vektor, selleks asenda alakriipsud vajalike objektidega. Prindi tulemus ekraanile.
+temp2 <- c(temp, lisa) 
+temp2
 ```
 
 `@sct`
 ```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+# 1
+test_object("Fahrenheit", 
+    undefined_msg = "Muutujat `Fahrenheit` pole defineeritud!", 
+    incorrect_msg = "Kontrolli, kas omistad muutujale `Fahrenheit` õige tehte.")
 
-test_object("good_movies")
+test_output_contains("Fahrenheit", 
+    incorrect_msg = "Prindi vektor `Fahrenheit` ekraanile!")
 
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+# 2
+test_predefined_objects("lisa",
+    undefined_msg = "Oled vektori `lisa` kustutanud! Alusta uuesti.", 
+    incorrect_msg = "Muutuja `lisa` väärtused on muudetud! Alusta uuesti.")
+    
+test_output_contains("lisa", 
+    incorrect_msg = "Vektor `lisa` pole välja prinditud!")
 
-test_error()
+# 3
+test_object("temp2", 
+    undefined_msg = "Puudub vektor `temp2`. Proovi uuesti!", 
+    incorrect_msg = "Vektori `temp2` väärtus ei vasta nõutule!")
+    
+test_output_contains("temp2",
+    incorrect_msg = "Vektor `temp2` pole välja prinditud!")
 
-success_msg("Good work!")
+
+
+success_msg("Super! Liigu järgmise ülesande juurde.")
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
