@@ -153,3 +153,107 @@ success_msg("Super! Liigu järgmise ülesande juurde.")
 
 
 
+
+
+
+
+---
+## Multiple choice
+
+```yaml
+type: MultipleChoiceExercise
+key: e9b1dcd0a7
+lang: r
+xp: 50
+skills: 1
+```
+
+
+Lisame histogrammi joonistamise käsku värvi järgmisel moel:
+```{r}
+ggplot(jootraha, aes(x = ratio, y = ..density..)) + 
+        geom_histogram(aes(fill = "chartreuse"))
+        
+```
+
+
+Vali õige vastusevariant, kuidas muutub histogrammi värv?
+
+
+`@instructions`
+- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni.
+- Tulemuseks oleval joonisel on histogrammi tulbad ikka hallid, kuid tulbad on raamistatud rohelisega.
+- Tulemuseks oleval joonisel on histogrammi tulbad punast tooni.
+- Tulemuseks oleval joonisel on histogrammi tulbad halli tooni, kuid tulbad on raamistatud punasega.
+- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni ja tulbad on raamistatud punasega.
+- Tulpade täitevärvi määramiseks tuleks `fill` asemel kasutada argumenti `color`.
+
+
+
+`@hint`
+- Mõtle kas andmestikus on tunnus, mille nimi on *chartreuse*?
+
+`@pre_exercise_code`
+```{r}
+library(ggplot2)
+# jootraha andmestik, reshape2
+library(reshape2)
+jootraha <-tips
+jootraha$ratio <- jootraha$tip/jootraha$total_bill
+```
+
+`@sct`
+```{r}
+msg1 = "Vale vastus!"
+msg2 = "Õige! Kuna täitevärvi määramine on `aes()` funktsiooni argumendiks ja tunnust nimega *chartreuse* andmestikus pole, siis tekitatakse see tunnus (konstantse väärtusega *charteuse*) juurde. Punane värv on vaikimisi kasutatava  diskreetse värviskaala esimene värv, mis värvib siin ära määratud ühe grupi histogrammi."
+msg3 = "Vale vastus! `color` määrab raami värvi, mitte täite."
+
+test_mc(correct = 3, feedback_msgs = c(msg1, msg1, msg2, msg1, msg1, msg3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+## Pure
+
+```yaml
+type: PureMultipleChoiceExercise
+key: 94a9fb57e7
+lang: r
+xp: 50
+skills: 1
+```
+
+
+`@possible_answers`
+- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni.
+- Tulemuseks oleval joonisel on histogrammi tulbad ikka hallid, kuid tulbad on raamistatud rohelisega.
+- Tulemuseks oleval joonisel on histogrammi tulbad punast tooni.
+- Tulemuseks oleval joonisel on histogrammi tulbad halli tooni, kuid tulbad on raamistatud punasega.
+- Tulemuseks oleval joonisel on histogrammi tulbad rohelist tooni ja tulbad on raamistatud punasega.
+- Tulpade täitevärvi määramiseks tuleks `fill` asemel kasutada argumenti `color`.
+
+`@hint`
+- Mõtle kas andmestikus on tunnus, mille nimi on *chartreuse*?
+
+
+`@feedbacks`
+- esimene
+- teine
+- kolmas
+- neljas
+- viies
+-kuues
+
+
+
+
